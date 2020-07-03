@@ -88,6 +88,7 @@
                     <a href="/test">Test aja nii gan</a>
                     <a href="/cont">Controller dengan Middleware</a>
                     <a href="/akun">Request</a>
+                    <a href="/dbTutor">Tutorial Database</a>
                 </div>
             </div>
         </div>
