@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  font-family: sans-serif;
+}
+.box{
+  background-color: blue;
+  padding: 25px 25px;
+}
+.box>h1{
+  color:white;
+  text-align: center;
+}
+.kotak{
+  margin: 15px 5px;
+  padding: 15px 5px;
+  display: block;
+  border: solid black 2px;
+  text-align: center;
+}
+.kotak input{
+  margin: 10px 10px;
+}
