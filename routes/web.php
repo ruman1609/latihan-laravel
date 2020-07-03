@@ -37,6 +37,5 @@ Route::post("/akun/masuk", "akuns@masuk");  // post disamakan dengan method di f
 
 Route::post("/akun/masuk/point", "pointController@index");
 
-Route::get("/dbTutor", function(){
-  return view("db");
-});
+Route::get("/dbTutor", "dbController@index");
+Route::post("/dbTutor/kirim", "dbController@kirim");

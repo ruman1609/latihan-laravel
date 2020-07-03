@@ -38,10 +38,6 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $exception)
     {
-        if($exception === MethodNotAllowedHttpException){
-          echo("<script>alert(\"Tidak bisa masuk\")");
-          return redirect('/akun');
-        }
         parent::report($exception);
     }
 

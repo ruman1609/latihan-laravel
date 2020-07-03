@@ -6,8 +6,18 @@
     <link rel="stylesheet" href="{{url("./assets/test.css")}}">
   </head>
   <body>
-    <form action="/akun/masuk" method="post" class="kotak">
+    <div class="box">
+      <h1>INPUT DATA</h1>
+    </div>
+    <form action="/dbTutor/kirim" method="post" class="kotak">
       @csrf
+      @if($errors)
+      <ol>
+        @foreach($errors as $e)
+          <li>{{$e}}</li>
+        @endforeach
+      </ol>
+      @endif
       <input type="text" name="nama" placeholder="Nama" required> <br>
       <input type="number" name="nim" placeholder="NIM" required> <br>
       <input type="submit" value="Konfirmasi">
