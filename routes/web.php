@@ -39,3 +39,4 @@ Route::post("/akun/masuk/point", "pointController@index");
 
 Route::get("/dbTutor", "dbController@index");
 Route::post("/dbTutor/kirim", "dbController@kirim");
+Route::get("/dbTutor/liat", "dbController@liat");

@@ -14,12 +14,11 @@ class dbController extends Controller{
       "nama" => ["required", "max:40"],
       "nim" => ["required", "min:10", "max:10"],
     ]);
-    $errors = $valid->errors(); 
-    $kirim = [
-      "nama" => $req->nama,
-      "nim" => $req->nim,
-    ];
-    DB::table("mhs")->insert($kirim);
-    return view("dbKirim", ["nama"=>$reg->nama, "nim" => $req->nim]);
+    DB::insert("insert into mhs(nama, nim) values (?,?)", [$req->nama, $req->nim]);  // kurang lebih seperti java
+    return view("dbKirim", ["nama"=>$req->nama, "nim" => $req->nim]);
+  }
+  function liat(){
+    $data = DB::select("select * from mhs");
+    return var_dump($data);
   }
 }

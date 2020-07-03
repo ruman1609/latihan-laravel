@@ -11,9 +11,9 @@
     </div>
     <form action="/dbTutor/kirim" method="post" class="kotak">
       @csrf
-      @if($errors)
+      @if(count($errors)>0)
       <ol>
-        @foreach($errors as $e)
+        @foreach($errors->all() as $e)
           <li>{{$e}}</li>
         @endforeach
       </ol>
