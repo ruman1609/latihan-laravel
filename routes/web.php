@@ -34,9 +34,11 @@ Route::get("/akun", function(){
 });
 
 Route::post("/akun/masuk", "akuns@masuk");  // post disamakan dengan method di form
-
 Route::post("/akun/masuk/point", "pointController@index");
 
 Route::get("/dbTutor", "dbController@index");
 Route::post("/dbTutor/kirim", "dbController@kirim");
 Route::get("/dbTutor/liat", "dbController@liat");
+Route::get("/dbTutor", function(){
+  return view("db");
+});

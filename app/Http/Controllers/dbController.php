@@ -11,7 +11,7 @@ class dbController extends Controller{
   }
   function kirim(Request $req){
     $valid = $req->validate([  // setel requirement dari datanya
-      "nama" => ["required", "max:40"],
+      "nama" => ["required", "alpha", "max:40"],
       "nim" => ["required", "min:10", "max:10"],
     ]);
     DB::insert("insert into mhs(nama, nim) values (?,?)", [$req->nama, $req->nim]);  // kurang lebih seperti java
@@ -19,6 +19,6 @@ class dbController extends Controller{
   }
   function liat(){
     $data = DB::select("select * from mhs");
-    return var_dump($data);
+    return view("dbLihat",["data"=>$data]);
   }
 }

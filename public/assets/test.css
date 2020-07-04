@@ -2,6 +2,7 @@
   margin: 0;
   font-family: sans-serif;
 }
+/* Setel Input */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
@@ -13,13 +14,70 @@ input::-webkit-inner-spin-button{
 input[type=number]{
   -moz-appearance: textfield;
 }
+/* Akhir Setel Input */
+
+table{
+  border-collapse: collapse;
+}
+th, td{
+  border: 1px black solid;
+  width: 200px;
+}
+th{
+  height: 50px !important;
+}
+td{
+  font-size: 12pt;
+}
+
+nav{
+  background-color: blue;
+  padding: 25px 10px 5px 25px;
+  color: white;
+}
+nav ol{
+  text-align: right;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid #008080;
+}
+nav li{
+  display: inline;
+  margin-left: 20px;
+  padding: 10px;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+a.linkitam{
+  color: black;
+  text-decoration: underline;
+}
+
+.error{
+  text-align: center;
+  display: inline;
+}
+
+.navigasi{
+  display: inline;
+  text-align: left;
+}
+
+.untuk{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
 
 .box{
-  background-color: blue;
-  padding: 25px 25px;
+  text-align: center;
 }
 .box>h1{
-  color:white;
+  color:black;
   text-align: center;
 }
 .kotak{

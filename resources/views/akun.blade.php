@@ -7,10 +7,17 @@
     <link rel="stylesheet" href="{{url("./assets/test.css")}}">
   </head>
   <body>
-    <div class="box">
-      <h1>FORM INPUT</h1>
-    </div>
+    <nav>
+      <h1>Latihan Laravel</h1>
+      <ol>
+        <h4 class="navigasi">Navigation</h4>
+        <li><a href="/">Beranda</a></li>
+        <li><a href="/dbTutor">Tutorial DB</a></li>
+        <li><a href="/akun">Test Input</a></li>
+      </ol>
+    </nav>
     <form action="/akun/masuk" method="post" class="kotak">
+      <h1>FORM INPUT</h1>
       @csrf
       <input type="text" name="nama" placeholder="Nama" required> <br>
       <input type="number" name="umur" placeholder="Umur" required> <br>
