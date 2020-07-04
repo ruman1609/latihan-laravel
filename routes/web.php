@@ -39,6 +39,12 @@ Route::post("/akun/masuk/point", "pointController@index");
 Route::get("/dbTutor", "dbController@index");
 Route::post("/dbTutor/kirim", "dbController@kirim");
 Route::get("/dbTutor/liat", "dbController@liat");
+Route::get("/dbTutor/liat/cari", "dbController@cari");
 Route::get("/dbTutor", function(){
   return view("db");
 });
+Route::get("dbTutor/edit/{nim}", function($nim){
+  return view("dbUpdate",["nim"=>$nim]);
+});  // {nim} dari parameter itu
+Route::get("dbTutor/edit/{nim}/proses", "dbController@edit");
+Route::get("dbTutor/delete/{nim}", "dbController@delete");  // {nim} dari parameter itu

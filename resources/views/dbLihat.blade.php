@@ -15,17 +15,26 @@
         <li><a href="/akun">Test Input</a></li>
       </ol>
     </nav>
+    <form action="/dbTutor/liat/cari" method="get">
+      <input type="text" name="nama">
+      <input type="submit" value="Search">
+    </form>
     <table class="untuk">
       <tr>
         <th>NIM</th>
         <th>NAMA</th>
+        <th>AKSI</th>
       </tr>
       @foreach($data as $item)
       <tr>
         <td>{{ $item->nim }}</td>
         <td>{{ $item->nama }}</td>
+        <td><a href="/dbTutor/edit/{{$item->nim}}" class="linkitam">edit</a> <!-- Tidak bisa kalau di action form -->
+          <a href="/dbTutor/delete/{{$item->nim}}" class="linkitam">delete</a></td>
+        <!-- Jadi cuman item->nim tu jadi penentu isi linknya -->
       </tr>
       @endforeach
     </table>
+    {{ $data->links() }}
   </body>
 </html>
