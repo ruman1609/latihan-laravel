@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Umur
+class AkunCek
 {
     /**
      * Handle an incoming request.
@@ -13,8 +13,11 @@ class Umur
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $umur){
-      echo("<p>UMUR: $umur </p>");
-      return $next($request);
+    public function handle($request, Closure $next)
+    {
+        if($request->user == "rudy"){
+          return $next($request);
+        }
+        else{return redirect("/");}
     }
 }

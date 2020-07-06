@@ -23,7 +23,7 @@ Route::get("/test", function(){
 });
 
 Route::get("/cont", [
-  "middleware" => "age: 18",  // middleware sesuai namanya
+  "middleware" => "age: 20",  // middleware sesuai namanya
   // age itu dari kernel.php yang ada di folder http
   "uses" => "User@test",  // uses buat controller
   // contoh uses  "uses" => "namaController@namaFungsiController"
@@ -32,6 +32,8 @@ Route::get("/cont", [
 Route::get("/akun", function(){
   return view("akun");
 });
+Route::get("/middletest", "AkunMantap@awal");
+Route::post("/middletest/proses", "AkunMantap@cek")->middleware("login");
 
 Route::post("/akun/masuk", "akuns@masuk");  // post disamakan dengan method di form
 Route::post("/akun/masuk/point", "pointController@index");

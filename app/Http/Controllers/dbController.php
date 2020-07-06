@@ -10,12 +10,18 @@ class dbController extends Controller{
     return view("db");
   }
   function kirim(Request $req){
-    $valid = $req->validate([  // setel requirement dari datanya
-      "nama" => ["required", "regex:/^[\pL\s\-]+$/u", "max:40"],
-      "nim" => ["required", "size:10"],
-    ]);
-    DB::insert("insert into mhs(nama, nim) values (?,?)", [$req->nama, $req->nim]);  // kurang lebih seperti java
-    return view("dbKirim", ["nama"=>$req->nama, "nim" => $req->nim]);
+    try {
+      $valid = $req->validate([  // setel requirement dari datanya
+        "nama" => ["required", "regex:/^[\pL\s\-]+$/u", "max:40"],
+        "nim" => ["required", "size:10"],
+      ]);
+      DB::insert("insert into mhs(nama, nim) values (?,?)", [$req->nama, $req->nim]);  // kurang lebih seperti java
+      echo("<script>alert(\"Data telah dikirim\nNama: $req->nama\nNIM: $req->nim\")</script>");
+      return redirect("db");
+    }catch (Exception $e) {
+      echo("<script>alert(\"$e->getMessage()\")</script>");
+    }
+
   }
   function liat(){
     // $data = DB::select("select * from mhs"); cara lama dan kurang efektif
