@@ -45,8 +45,9 @@ Route::get("/dbTutor/liat/cari", "dbController@cari");
 Route::get("/dbTutor", function(){
   return view("db");
 });
-Route::get("dbTutor/edit/{nim}", function($nim){
+Route::get("/dbTutor/edit/{nim}", function($nim){
   return view("dbUpdate",["nim"=>$nim]);
 });  // {nim} dari parameter itu
-Route::get("dbTutor/edit/{nim}/proses", "dbController@edit");
-Route::get("dbTutor/delete/{nim}", "dbController@delete");  // {nim} dari parameter itu
+Route::get("/dbTutor/edit/{nim}/proses", "dbController@edit");
+Route::get("/dbTutor/delete/{nim}", "dbController@delete");  // {nim} dari parameter itu
+Route::get("/dbTutor/test","dbController@test");

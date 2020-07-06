@@ -5,8 +5,8 @@
     <title></title>
   </head>
   <body>
-    <h1>Data telah dikirim</h1>
-    <p>Nama: {{$nama}}</p>
-    <p>NIM: {{$nim}}</p>
+    <script type="text/javascript">
+      alert("NIM sudah terinput, silahkan isi dengan NIM yang lain");
+    </script>
   </body>
 </html>

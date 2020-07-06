@@ -1,3 +1,6 @@
+@if(session()->has("msg"))
+<?php echo("<script>alert(\"".session()->get("msg")."\")</script>"); ?>
+@endif
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -15,7 +18,8 @@
         <li><a href="/akun">Test Input</a></li>
       </ol>
     </nav>
-    <form action="/dbTutor/liat/cari" method="get">
+    <form action="/dbTutor/liat/cari" method="get" class="search">
+      Nama yang ingin dicari <br>
       <input type="text" name="nama">
       <input type="submit" value="Search">
     </form>

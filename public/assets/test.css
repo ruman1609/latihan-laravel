@@ -57,6 +57,11 @@ a.linkitam{
   text-decoration: underline;
 }
 
+nav ul.pagination{
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .error{
   text-align: center;
   display: inline;
@@ -71,6 +76,7 @@ a.linkitam{
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .box{
@@ -89,4 +95,8 @@ a.linkitam{
 }
 .kotak input{
   margin: 10px 10px;
+}
+.search{
+  text-align:center;
+  margin-top: 45px;
 }

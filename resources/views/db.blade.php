@@ -1,3 +1,6 @@
+@if(session()->has("msg"))
+<?php echo("<script>alert(\"".session()->get("msg")."\")</script>"); ?>
+@endif
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -24,6 +27,9 @@
             <li>{{$e}}</li>
           @endforeach
         </ul>
+        @endif
+        @if(session('error'))
+        <h5 style="color: red">{{session("error")}}</h1>
         @endif
         <input type="text" name="nama" placeholder="Nama" required> <br>
         <input type="number" name="nim" placeholder="NIM" required> <br>
