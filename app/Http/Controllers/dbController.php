@@ -19,7 +19,7 @@ class dbController extends Controller{
       DB::insert("insert into mhs(nama, nim) values (?,?)", [$req->nama, $req->nim]);  // kurang lebih seperti java
       return redirect("/dbTutor")->with("msg", "Data telah dikirim\\nNama: ".$req->nama."\\nNIM: ".$req->nim);  // pake \\n biar enter kalau di sini
     } catch (\Exception $e) {
-      return back()->withError("Terjadi kesalahan, error code: ".$e->getCode())->withInput();
+      return back()->withError("Error: ".$e->getMessage())->withInput();
     }
 
   }
