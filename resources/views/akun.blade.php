@@ -5,9 +5,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>MASUK</title>
     <link rel="stylesheet" href="{{url("./assets/test.css")}}">
+    <link rel="stylesheet" href="{{url("./bootstrap/dist/css/bootstrap.min.css")}}">
   </head>
   <body>
-    <nav>
+    <nav class="head">
       <h1>Latihan Laravel</h1>
       <ol>
         <h4 class="navigasi">Navigation</h4>
@@ -16,7 +17,7 @@
         <li><a href="/akun">Test Input</a></li>
       </ol>
     </nav>
-    <form action="/akun/masuk" method="post" class="kotak">
+    <form action="/akun/masuk" method="post" class="kotak isi">
       <h1>FORM INPUT</h1>
       @csrf
       <input type="text" name="nama" placeholder="Nama" required> <br>

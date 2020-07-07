@@ -18,6 +18,7 @@ input[type=number]{
 
 table{
   border-collapse: collapse;
+  margin-bottom: px !important;
 }
 th, td{
   border: 1px black solid;
@@ -29,11 +30,16 @@ th{
 td{
   font-size: 12pt;
 }
+th,td{text-align: center !important;}
 
 nav{
-  background-color: blue;
-  padding: 25px 10px 5px 25px;
+  background-color: var(--blue);
   color: white;
+  border-radius: 10px;
+}
+nav.head{
+  padding: 25px 10px 5px 25px;
+  border-radius: 0;
 }
 nav ol{
   text-align: right;
@@ -45,21 +51,40 @@ nav li{
   display: inline;
   margin-left: 20px;
   padding: 10px;
-  border-right: 1px solid white;
-  border-left: 1px solid white;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
 }
 a{
   text-decoration: none;
-  color: white;
+  color: white !important;
 }
 a.linkitam{
-  color: black;
+  color: black !important;
   text-decoration: underline;
 }
 
-nav ul.pagination{
-  text-align: center;
-  margin-bottom: 15px;
+
+ul.pagination{
+  padding: 10px 0 10px 0;
+  justify-content: center;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff !important;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.page-item.disabled{
+  display: none;
+}
+.page-link {
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff !important;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
 }
 
 .error{
@@ -73,10 +98,7 @@ nav ul.pagination{
 }
 
 .untuk{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin: 20px auto 40px auto !important;
 }
 
 .box{
@@ -87,11 +109,28 @@ nav ul.pagination{
   text-align: center;
 }
 .kotak{
-  margin: 15px 5px;
-  padding: 15px 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  background-color: rgba(255,255,255, 0.9);
   display: block;
-  border: solid black 2px;
+  box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.75);
+}
+.kotak.isi{
+  padding: 30px 5px;
+  margin-top: 50px;
+  width: 500px;
+  height: 300px;
   text-align: center;
+}
+.kotak.tampil{
+  padding: 10px 5px;
+  width: 800px;
+  height: 500px;
+  margin: 20px auto;
+}
+body{
+  background-color: var(--cyan) !important;
 }
 .kotak input{
   margin: 10px 10px;
@@ -99,4 +138,19 @@ nav ul.pagination{
 .search{
   text-align:center;
   margin-top: 45px;
+}
+
+@media screen and (max-width: 800px){
+  nav{
+    text-align:center;
+  }
+  nav li{
+    display : inline;
+    border: none;
+    margin: 0;
+  }
+  nav ol, .navigasi{
+    display: block;
+    text-align: center;
+  }
 }
