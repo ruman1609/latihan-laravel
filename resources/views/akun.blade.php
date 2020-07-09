@@ -15,6 +15,7 @@
         <li><a href="/">Beranda</a></li>
         <li><a href="/dbTutor">Tutorial DB</a></li>
         <li><a href="/akun">Test Input</a></li>
+        <li><a href="/middletest">Login</a></li>
       </ol>
     </nav>
     <form action="/akun/masuk" method="post" class="kotak isi">
@@ -25,5 +26,7 @@
       <input type="email" name="email" placeholder="E-Mail" required> <br>
       <input type="submit" value="Konfirmasi">
     </form>
+    <script type="text/javascript" src="{{url("/bootstrap/dist/js/jquery.min.js")}}"></script>
+    <script type="text/javascript" src="{{url("/bootstrap/dist/js/bootstrap.min.js")}}"></script>
   </body>
 </html>

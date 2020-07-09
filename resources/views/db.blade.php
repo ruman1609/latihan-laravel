@@ -17,27 +17,28 @@
         <li><a href="/">Beranda</a></li>
         <li><a href="/dbTutor">Tutorial DB</a></li>
         <li><a href="/akun">Test Input</a></li>
+        <li><a href="/middletest">Login</a></li>
       </ol>
     </nav>
     <div class="kotak isi">
       <h1>Form Mahasiswa</h1>
       <form action="/dbTutor/kirim" method="post">
         @csrf
-        @if(count($errors)>0)
-        <ul class="error">
-          @foreach($errors->all() as $e)
-            <li>{{$e}}</li>
-          @endforeach
-        </ul>
-        @endif
-        @if(session('error'))
-        <h5 style="color: red">{{session("error")}}</h1>
-        @endif
         <input type="text" name="nama" placeholder="Nama" required> <br>
         <input type="number" name="nim" placeholder="NIM" required> <br>
         <input type="submit" value="Konfirmasi">
       </form>
       <a href="/dbTutor/liat" class="linkitam">Lihat Data</a>
+      @if(count($errors)>0)
+      <ul class="error">
+        @foreach($errors->all() as $e)
+        <li>{{$e}}</li><br>
+        @endforeach
+      </ul>
+      @endif
+      @if(session()->has("dbError"))
+      <h5 style="color: red">{{session()->get("dbError")}}</h1>
+      @endif
     </div>
     <script type="text/javascript" src="{{url("/bootstrap/dist/js/jquery.min.js")}}"></script>
     <script type="text/javascript" src="{{url("/bootstrap/dist/js/bootstrap.min.js")}}"></script>

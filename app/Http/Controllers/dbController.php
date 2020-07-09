@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException as QE;
 use App\Mhs;
 
 class dbController extends Controller{
@@ -19,8 +20,8 @@ class dbController extends Controller{
       Mhs::insert(["nama"=>$req->nama, "nim"=>$req->nim]);  // eloquent harus make query builder
       // DB::insert("insert into mhs(nama, nim) values (?,?)", [$req->nama, $req->nim]);  // kurang lebih seperti java
       return redirect("/dbTutor")->with("msg", "Data telah dikirim\\nNama: ".$req->nama."\\nNIM: ".$req->nim);  // pake \\n biar enter kalau di sini
-    } catch (\Exception $e) {
-      return back()->withError("Error: ".$e->getMessage())->withInput();
+    } catch (QE $e) {
+      return back()->with("dbError", "NIM sudah terdaftar")->withInput();
     }
 
   }

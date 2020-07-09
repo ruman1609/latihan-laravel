@@ -17,6 +17,7 @@
         <li><a href="/">Beranda</a></li>
         <li><a href="/dbTutor">Tutorial DB</a></li>
         <li><a href="/akun">Test Input</a></li>
+        <li><a href="/middletest">Login</a></li>
       </ol>
     </nav>
     <div class="kotak tampil">
@@ -26,26 +27,26 @@
         <input type="submit" value="Search">
       </form>
       @if($ada)
-      <table class="untuk">
-        <tr>
-          <th>NIM</th>
-          <th>NAMA</th>
-          <th>AKSI</th>
-        </tr>
-        @foreach($data as $item)
-        <tr>
-          <td>{{ $item->nim }}</td>
-          <td>{{ $item->nama }}</td>
-          <td><a href="/dbTutor/edit/{{$item->nim}}" class="linkitam">edit</a> <!-- Tidak bisa kalau di action form -->
-            <a href="/dbTutor/delete/{{$item->nim}}" class="linkitam">delete</a></td>
-          <!-- Jadi cuman item->nim tu jadi penentu isi linknya -->
-        </tr>
-        @endforeach
-      </table>
+        <table class="untuk">
+          <tr>
+            <th>NIM</th>
+            <th>NAMA</th>
+            <th>AKSI</th>
+          </tr>
+          @foreach($data as $item)
+          <tr>
+            <td>{{ $item->nim }}</td>
+            <td>{{ $item->nama }}</td>
+            <td><a href="/dbTutor/edit/{{$item->nim}}" class="linkitam">edit</a> <!-- Tidak bisa kalau di action form -->
+              <a href="/dbTutor/delete/{{$item->nim}}" class="linkitam">delete</a></td>
+            <!-- Jadi cuman item->nim tu jadi penentu isi linknya -->
+          </tr>
+          @endforeach
+        </table>
       @else
-      <div class="alert alert-primary" role="alert" style="margin: 45px; text-align:center">
-        Data tidak ada yang bisa ditampilkan
-      </div>
+        <div class="alert alert-primary" role="alert" style="margin: 45px; text-align:center">
+          Data tidak ada yang bisa ditampilkan
+        </div>
       @endif
       {{ $data->links() }}
     </div>

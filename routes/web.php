@@ -34,6 +34,10 @@ Route::get("/akun", function(){
 });
 Route::get("/middletest", "AkunMantap@awal");
 Route::post("/middletest/proses", "AkunMantap@cek")->middleware("login");
+Route::get("/middletest/akun/{user}", "AkunMantap@masuk");
+
+Route::get("/daftar", function(){ return view("Daftar.daftar"); });
+Route::post("/daftar/proses", "AkunMantap@daftar");
 
 Route::post("/akun/masuk", "akuns@masuk");  // post disamakan dengan method di form
 Route::post("/akun/masuk/point", "pointController@index");
