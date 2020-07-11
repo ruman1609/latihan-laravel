@@ -130,6 +130,14 @@ ul.pagination{
   height: 500px;
   margin: 20px auto;
 }
+.kotak.email{
+  padding: 30px 5px;
+  margin-top: 50px;
+  width: 500px;
+  height: auto;
+  text-align: center;
+}
+
 body{
   background-color: var(--cyan) !important;
 }

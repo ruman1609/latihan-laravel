@@ -55,3 +55,10 @@ Route::get("/dbTutor/edit/{nim}", function($nim){
 Route::get("/dbTutor/edit/{nim}/proses", "dbController@edit");
 Route::get("/dbTutor/delete/{nim}", "dbController@delete");  // {nim} dari parameter itu
 Route::get("/dbTutor/test","dbController@test");
+
+Route::get("/kirim","KirimEmail@index");
+Route::post("/kirim/proses","KirimEmail@proses");
+Route::get("/kirim/test", function(){
+  $mail = new App\Mail\KelasL();
+  return $mail->render();
+});

@@ -90,6 +90,7 @@
                     <a href="/middletest">Middleware Akun</a>
                     <a href="/akun">Request</a>
                     <a href="/dbTutor">Tutorial Database</a>
+                    <a href="/kirim">Kirim Email</a>
                 </div>
             </div>
         </div>
