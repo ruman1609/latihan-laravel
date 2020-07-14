@@ -6,6 +6,7 @@ use ErrorException;
 use Closure;
 use Illuminate\Support\Facades\Hash;
 use App\Pengguna;
+use Illuminate\Support\Facades\DB;
 
 class AkunCek
 {
@@ -18,13 +19,21 @@ class AkunCek
      */
     public function handle($request, Closure $next)
     {
-      $data = Pengguna::get();
-      foreach($data as $dat){
-        if($dat->user == $request->user && Hash::check($request->pass, $dat->pass)){
-          return $next($request);
-        }else{return back()->with("err", "Salah User dan Password");}
+      DB::beginTransaction();
+      try {
+        $data = Pengguna::get();
+        DB::commit();
+        foreach($data as $dat){
+          if($dat->user == $request->user && Hash::check($request->pass, $dat->pass)){
+            return $next($request);
+          }else{return back()->with("err", "Salah User dan Password");}
+        }
+        return back()->with("err", "Salah User dan Password");
+      } catch (\Exception $e) {
+        DB::rollback();
+        return back()->with("errorr", "Terjadi kesalahan");
       }
-      return back()->with("err", "Salah User dan Password");
+
 
         // if($request->user == "rudy" && $request->pass == "rudy"){
         //   return $next($request);

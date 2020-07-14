@@ -21,11 +21,31 @@
       <h1>Daftar</h1>
       @csrf
       <input type="text" name="user" placeholder="Username"><br>
-      <input type="password" name="pass" placeholder="Password"><br>
-      <input type="submit" value="Daftar"><br>
+      <input type="password" name="pass" placeholder="Password" id="pass" onkeyup="check()"><br>
+      <input type="password" name="pass" placeholder="Konfirmasi Password" id="konfPass" onkeyup="check()"><br>
+      <h6 id="cocok"></h6>
+      <input type="submit" value="Daftar" id="gas"><br>
       <a href="/middletest" class="linkitam">Login</a>
     </form>
     <script type="text/javascript" src="{{url("/bootstrap/dist/js/jquery.min.js")}}"></script>
     <script type="text/javascript" src="{{url("/bootstrap/dist/js/bootstrap.min.js")}}"></script>
+    <script type="text/javascript">
+      const check = ()=>{
+        if(document.querySelector("#pass").value != "" || document.querySelector("#konfPass").value != ""){
+          if(document.querySelector("#pass").value == document.querySelector("#konfPass").value){
+            document.querySelector("#cocok").style.color="green";
+            document.querySelector("#cocok").innerHTML="Password Cocok";
+            document.querySelector("#gas").disabled=false;
+            return;
+          }else{
+            document.querySelector("#cocok").style.color="red";
+            document.querySelector("#cocok").innerHTML="Password Tidak Cocok";
+            document.querySelector("#gas").disabled=true;
+            return;
+          }
+        }else document.querySelector("#gas").disabled=true;
+      }
+      check();
+    </script>
   </body>
 </html>
