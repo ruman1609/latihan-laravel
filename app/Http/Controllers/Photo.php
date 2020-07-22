@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Foto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Hash;
 
 class Photo extends Controller
 {
@@ -35,8 +38,22 @@ class Photo extends Controller
      */
     public function store(Request $request)
     {
-      $request->foto->move(public_path("storage"), "test.jpg");
-      Storage::put("gambar", $request->foto);
+      $valid = $request->validate([
+        "foto" => "mimes:jpeg,png"
+      ]);
+      $image = $request->file("foto");
+      $filename = time().".".$image->getClientOriginalExtension();
+      $file = Hash::make($filename);
+      $file = str_replace("/", ".", $file);
+      $file = str_replace("\\", ".", $file);
+      while(Hash::needsRehash($file)){
+        $file = Hash::make($file);
+        $file = str_replace("/", ".", $file);
+        $file = str_replace("\\", ".", $file);
+      }
+      echo($file);
+      $request->foto->storeAs("\public", $file);
+      // Storage::put(public_path("storage")."/".$filename, $img);
       echo("Berhasil");
     }
 
