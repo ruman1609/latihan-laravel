@@ -62,3 +62,7 @@ Route::get("/kirim/test", function(){
   $mail = new App\Mail\KelasL();
   return $mail->render();
 });
+
+
+Route::resource("testfoto", "Photo"); // https://laravel.com/docs/7.x/controllers#resource-controllers
+// liat yang di situ yaa isi resourcenyaa
